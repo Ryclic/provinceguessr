@@ -6,3 +6,21 @@ html, body, #map {
     height: 100%;
     width: 100vw;
 }
+
+.info {
+    padding: 6px 8px;
+    font: 14px 'Roboto', sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 11px 15px -7px rgb(0 0 0 / 20%), 0 24px 38px 3px rgb(0 0 0 / 14%), 0 9px 46px 8px rgb(0 0 0 / 12%);
+    border-radius: 5px;
+}
+.info h2 {
+    margin: 0 0 5px;
+    color: #120d0d;
+}
+
+.info h3{
+    font: 16px 'Noto Serif Khitan Small Script', sans-serif;
+    margin: 0;
+}

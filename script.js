@@ -69,9 +69,9 @@ info.onAdd = function (map) {
 };
 
 info.update = function (props) {
-    this._div.innerHTML = '<h3>Current Province:</h3>' +  (props ?
-        '<b>' + props.nameCN + '</b>'
-        : '<i>Hover over a province</i>');
+    this._div.innerHTML = '<h2>Current Province:</h2>' +  (props ?
+        '<h3>' + props.nameCN + '</h3>'
+        : 'Hover over a province');
 };
 
 info.addTo(map);
