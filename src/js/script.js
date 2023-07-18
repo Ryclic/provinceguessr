@@ -1,4 +1,5 @@
 import {provincesData} from "./provinces.js";
+import * as game from "./game.js";
 
 // Default outline for all provinces
 function style(feature) {
@@ -48,11 +49,11 @@ function featureEffects(feature, layer){
 }
 
 // Bound and render the 2D map
-var topLeft = L.latLng(40, 70);
-var bottomRight = L.latLng(30, 140);
-var bounds = L.latLngBounds(topLeft, bottomRight);
+const topLeft = L.latLng(40, 70);
+const bottomRight = L.latLng(30, 140);
+const bounds = L.latLngBounds(topLeft, bottomRight);
 
-var map = L.map('map').fitBounds(bounds).setMinZoom(4); // .setMaxBounds(bounds);
+const map = L.map('map').fitBounds(bounds).setMinZoom(4); // .setMaxBounds(bounds);
 L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '© CartoDB'
@@ -66,7 +67,7 @@ geojson = L.geoJson(provincesData, {
 }).addTo(map);
 
 // Create a key for provinces
-var info = L.control();
+const info = L.control();
 
 info.onAdd = function (map) {
     this._div = L.DomUtil.create('div', 'info');
@@ -85,4 +86,9 @@ info.addTo(map);
 // Reset map view button
 document.getElementById("resetButton").addEventListener("click", () => {
     map.fitBounds(bounds);
+});
+
+// Call game
+document.getElementById("submitButton").addEventListener("click", () => {
+    game.testFunc("submitted!");
 });
