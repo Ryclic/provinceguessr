@@ -1,8 +1,28 @@
-body {
+.initScreen {
+    height: 100%;
+    width: 50vw;
+    position: fixed;
+    top: 10;
+    left: 10;
+}
+
+.initScreen h1 {
+    margin: 0;
+    font: 40px 'Lilita One', cursive;
+}
+
+.initScreen h3 {
+    font: 20px 'Roberto', san-serif;
+}
+
+
+
+
+
+
+#map {
     padding: 0;
     margin: 0;
-}
-html, body, #map {
     height: 100%;
     width: 50vw;
     position: fixed;
@@ -17,6 +37,7 @@ html, body, #map {
     box-shadow: 0 11px 15px -7px rgb(0 0 0 / 20%), 0 24px 38px 3px rgb(0 0 0 / 14%), 0 9px 46px 8px rgb(0 0 0 / 12%);
     border-radius: 5px;
 }
+
 .info h2 {
     margin: 0 0 5px;
     color: #292626;

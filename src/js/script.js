@@ -88,7 +88,7 @@ document.getElementById("resetButton").addEventListener("click", () => {
     map.fitBounds(bounds);
 });
 
-// Call game
+// Submit player response
 document.getElementById("submitButton").addEventListener("click", () => {
-    game.testFunc("submitted!");
+    // TODO SUBMIT
 });

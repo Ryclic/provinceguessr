@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ProvinceGuessr</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
@@ -14,9 +17,22 @@
      crossorigin=""></script>
 </head>
 <body>
-    <div id="map"></div>
-    <button id="resetButton">Reset View</button>
-    <button id="submitButton">Submit</button>
+    <div class="initScreen">
+        <h1>ProvinceGuessr</h1>
+        <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h3>
+    </div>
+
+    <div class="gameScreen">
+        <div id="left">
+
+        </div>
+
+        <div id="right">
+            <div id="map"></div>
+            <button id="resetButton">Reset View</button>
+            <button id="submitButton">Submit</button>
+        </div>
+    </div>
 </body>
 </html>
 

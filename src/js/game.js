@@ -1,3 +1,3 @@
-export function testFunc(text){
-    console.log(text);
+export function newRound(){
+    console.log("start a new round!");
 }
