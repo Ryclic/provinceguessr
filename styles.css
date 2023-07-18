@@ -4,7 +4,10 @@ body {
 }
 html, body, #map {
     height: 100%;
-    width: 100vw;
+    width: 50vw;
+    position: fixed;
+    top: 0;
+    right: 0;
 }
 
 .info {
@@ -17,7 +20,7 @@ html, body, #map {
 }
 .info h2 {
     margin: 0 0 5px;
-    color: #120d0d;
+    color: #292626;
 }
 
 .info h3{

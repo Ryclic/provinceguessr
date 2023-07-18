@@ -3,7 +3,8 @@ import {provincesData} from "./provinces.js";
 // Default outline for all provinces
 function style(feature) {
     return {
-        fillColor: '#ef7678',
+        // ef7678
+        fillColor: '#CC232A',
         weight: 2,
         opacity: 1,
         color: 'white',
@@ -17,10 +18,11 @@ function highlightFeature(e) {
     var layer = e.target;
 
     layer.setStyle({
+        // 7e92ed
+        color: '#F5AC27',
         weight: 5,
-        color: '#7e92ed',
         dashArray: '',
-        fillOpacity: 0.7
+        fillOpacity: 0.5
     });
 
     layer.bringToFront();
@@ -45,8 +47,12 @@ function featureEffects(feature, layer){
     });
 }
 
-// Render the 2D map
-var map = L.map('map').fitWorld();
+// Bound and render the 2D map
+var topLeft = L.latLng(40, 70);
+var bottomRight = L.latLng(30, 140);
+var bounds = L.latLngBounds(topLeft, bottomRight);
+
+var map = L.map('map').fitBounds(bounds).setMinZoom(4);// .setMaxBounds(bounds);
 L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '© CartoDB'
@@ -70,7 +76,7 @@ info.onAdd = function (map) {
 
 info.update = function (props) {
     this._div.innerHTML = '<h2>Current Province:</h2>' +  (props ?
-        '<h3>' + props.nameCN + '</h3>'
+        '<h3>' + props.nameCN + " | " + props.nameEN + '</h3>'
         : 'Hover over a province');
 };
 
