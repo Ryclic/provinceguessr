@@ -52,7 +52,7 @@ var topLeft = L.latLng(40, 70);
 var bottomRight = L.latLng(30, 140);
 var bounds = L.latLngBounds(topLeft, bottomRight);
 
-var map = L.map('map').fitBounds(bounds).setMinZoom(4);// .setMaxBounds(bounds);
+var map = L.map('map').fitBounds(bounds).setMinZoom(4); // .setMaxBounds(bounds);
 L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '© CartoDB'
@@ -81,3 +81,8 @@ info.update = function (props) {
 };
 
 info.addTo(map);
+
+// Reset map view button
+document.getElementById("resetButton").addEventListener("click", () => {
+    map.fitBounds(bounds);
+});
