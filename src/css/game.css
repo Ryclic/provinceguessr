@@ -1,0 +1,16 @@
+.gameScreen {
+    height: 100%;
+    width: 40vw;
+    position: fixed;
+    top: 10;
+    left: 10;
+}
+
+.gameScreen > #left h1 {
+    margin-top: 30px;
+    font: 40px 'Rubik', sans-serif;
+    font-weight: 500;
+    width: 99%;
+    justify-content: center;
+    display: flex;
+}

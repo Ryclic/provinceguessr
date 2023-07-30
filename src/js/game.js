@@ -1,3 +1,7 @@
-export function newRound(){
-    console.log("start a new round!");
+export function newRound() {
+    
+}
+
+export function evaluateAnswer() {
+
 }

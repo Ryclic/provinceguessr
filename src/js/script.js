@@ -1,6 +1,8 @@
 import {provincesData} from "./provinces.js";
 import * as game from "./game.js";
 
+let selected = "";
+
 // Default outline for all provinces
 function style(feature) {
     return {
@@ -21,9 +23,9 @@ function highlightFeature(e) {
     layer.setStyle({
         // 7e92ed
         color: '#F5AC27',
-        weight: 5,
-        dashArray: '',
-        fillOpacity: 0.5
+        weight: 2,
+        dashArray: '10',
+        fillOpacity: 1
     });
 
     layer.bringToFront();
@@ -35,8 +37,16 @@ function resetHighlight(e) {
     info.update();
 }
 
-function zoomToFeature(e) {
+function selectProvince(e) {
+    e.target.setStyle({
+        // 7e92ed
+        color: '#F5AC27',
+        weight: 2,
+        dashArray: '',
+        fillOpacity: 1
+    });
     map.fitBounds(e.target.getBounds());
+    selected = e.target.feature.properties.nameEN;
 }
 
 // Setup event listeners
@@ -44,7 +54,7 @@ function featureEffects(feature, layer){
     layer.on({
         mouseover: highlightFeature,
         mouseout: resetHighlight,
-        click: zoomToFeature
+        click: selectProvince
     });
 }
 
@@ -87,13 +97,12 @@ info.addTo(map);
 document.getElementById("startGame").addEventListener("click", () => {
     // Remove blur and show game
     const elements = document.querySelectorAll("#map, #resetButton, #submitButton");
-    console.log(elements);
     elements.forEach(element => {
       element.style.filter = "none";
     });
     document.getElementsByClassName("initScreen")[0].style.visibility = "hidden";
     document.getElementsByClassName("gameScreen")[0].style.visibility = "visible";
-
+    game.newRound();
 })
 
 // Reset map view button
@@ -103,5 +112,6 @@ document.getElementById("resetButton").addEventListener("click", () => {
 
 // Submit player response
 document.getElementById("submitButton").addEventListener("click", () => {
+    
     // TODO SUBMIT
 });

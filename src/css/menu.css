@@ -1,4 +1,4 @@
-.initScreen, .gameScreen#right {
+.initScreen {
     height: 100%;
     width: 40vw;
     position: fixed;
