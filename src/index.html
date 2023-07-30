@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ProvinceGuessr</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/map.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
      crossorigin=""/>
@@ -18,21 +19,25 @@
 </head>
 <body>
     <div class="initScreen">
-        <h1>ProvinceGuessr</h1>
-        <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h3>
+        <h1>ProvinceGuessr | 猜菜系戏</h1>
+        <h2>How well do you know the various dishes of China? This game will display various dishes from each province, and your task is to guess where the food originates from.</h2>
+        <h2>This game includes all provinces, administrative regions, and autonomous regions, for a total of 34 distinct options.</h2>
+        <h2>Hover over a province to see its name. When you are ready to guess, click and submit. If you get lost, feel free to reset your view.</h2>
+        <h2>Ready to play? Get started!</h2>
+        <buton id="startGame">Start</buton>
     </div>
 
-    <div class="gameScreen">
+    <div class="gameScreen" style="visibility: hidden">
         <div id="left">
-
-        </div>
-
-        <div id="right">
-            <div id="map"></div>
-            <button id="resetButton">Reset View</button>
-            <button id="submitButton">Submit</button>
+            <h1>test</h1>
         </div>
     </div>
+    <div id="right">
+        <div id="map"></div>
+        <button id="resetButton">Reset View</button>
+        <button id="submitButton">Submit</button>
+    </div>
+
 </body>
 </html>
 

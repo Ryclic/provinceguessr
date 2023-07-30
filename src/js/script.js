@@ -83,6 +83,19 @@ info.update = function (props) {
 
 info.addTo(map);
 
+// Start game button
+document.getElementById("startGame").addEventListener("click", () => {
+    // Remove blur and show game
+    const elements = document.querySelectorAll("#map, #resetButton, #submitButton");
+    console.log(elements);
+    elements.forEach(element => {
+      element.style.filter = "none";
+    });
+    document.getElementsByClassName("initScreen")[0].style.visibility = "hidden";
+    document.getElementsByClassName("gameScreen")[0].style.visibility = "visible";
+
+})
+
 // Reset map view button
 document.getElementById("resetButton").addEventListener("click", () => {
     map.fitBounds(bounds);

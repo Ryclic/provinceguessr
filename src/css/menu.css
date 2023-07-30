@@ -1,0 +1,61 @@
+.initScreen, .gameScreen#right {
+    height: 100%;
+    width: 40vw;
+    position: fixed;
+    top: 10;
+    left: 10;
+}
+
+.initScreen h1 {
+    margin: 0;
+    font: 50px 'Rubik', sans-serif;
+    font-weight: 500;
+    width: 99%;
+    justify-content: center;
+    display: flex;
+}
+.initScreen h2 {
+    padding: 10px;
+    font: 30px 'Rubik', sans-serif;
+    font-weight: 400;
+    width: 99%;
+}
+
+#startGame {
+    position: fixed;
+    font: 12px 'Roboto', sans-serif;
+    bottom: 2%; 
+    left: 13%;
+    outline: none;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+    border-radius: 500px;
+    transition-property: background-color,border-color,color,box-shadow,filter;
+    transition-duration: .3s;
+    border: 1px solid transparent;
+    letter-spacing: 2px;
+    min-width: 160px;
+    text-transform: uppercase;
+    white-space: normal;
+    font-weight: 700;
+    text-align: center;
+    padding: 17px 48px;
+    color: #fff;
+    background-color: rgb(224, 99, 99);
+    height: 20px;
+    outline-style: solid;
+}
+
+#startGame:hover{
+    transform: scale(1.2);
+    background-color: #852123;
+    transition-property: background-color, transform;
+    transition-duration: 0.3s;
+}
+#startGame:not(:hover){
+    transform: scale(1);
+    background-color: rgb(224, 99, 99);
+    transition-property: background-color, transform;
+    transition-duration: 0.3s;
+}
