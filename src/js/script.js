@@ -26,7 +26,7 @@ function highlightFeature(e) {
             color: '#F5AC27',
             weight: 2,
             dashArray: '10',
-            fillOpacity: 0.8
+            fillOpacity: 0.725
         });
         layer.bringToFront();
     }
@@ -51,7 +51,7 @@ function selectProvince(e) {
         color: '#00000',
         weight: 2,
         dashArray: '10',
-        fillOpacity: 0.8
+        fillOpacity: 0.85
     });
     // map.fitBounds(e.target.getBounds());
     selected = e;
