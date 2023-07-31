@@ -19,34 +19,42 @@ function style(feature) {
 // Outline on mouseover
 function highlightFeature(e) {
     var layer = e.target;
-
-    layer.setStyle({
-        // 7e92ed
-        color: '#F5AC27',
-        weight: 2,
-        dashArray: '10',
-        fillOpacity: 1
-    });
-
-    layer.bringToFront();
     info.update(layer.feature.properties);
+    if((!selected) || e.target.feature.properties != selected.target.feature.properties){
+        layer.setStyle({
+            fillColor: '#8B0000',
+            color: '#F5AC27',
+            weight: 2,
+            dashArray: '10',
+            fillOpacity: 0.8
+        });
+        layer.bringToFront();
+    }
 }
 
 function resetHighlight(e) {
-    geojson.resetStyle(e.target);
-    info.update();
+    if((!selected) || e.target.feature.properties != selected.target.feature.properties){
+        geojson.resetStyle(e.target);
+        info.update();
+    }
 }
 
 function selectProvince(e) {
+    if(selected && (e.target != selected)){
+        selected.target.setStyle(style());
+        highlightFeature(e);
+
+    }
     e.target.setStyle({
         // 7e92ed
-        color: '#F5AC27',
+        fillColor: '#8B0000',
+        color: '#00000',
         weight: 2,
-        dashArray: '',
-        fillOpacity: 1
+        dashArray: '10',
+        fillOpacity: 0.8
     });
-    map.fitBounds(e.target.getBounds());
-    selected = e.target.feature.properties.nameEN;
+    // map.fitBounds(e.target.getBounds());
+    selected = e;
 }
 
 // Setup event listeners
@@ -93,6 +101,11 @@ info.update = function (props) {
 
 info.addTo(map);
 
+// Reset map view button
+document.getElementById("resetButton").addEventListener("click", () => {
+    map.fitBounds(bounds);
+});
+
 // Start game button
 document.getElementById("startGame").addEventListener("click", () => {
     // Remove blur and show game
@@ -105,13 +118,10 @@ document.getElementById("startGame").addEventListener("click", () => {
     game.newRound();
 })
 
-// Reset map view button
-document.getElementById("resetButton").addEventListener("click", () => {
-    map.fitBounds(bounds);
-});
-
 // Submit player response
 document.getElementById("submitButton").addEventListener("click", () => {
-    
-    // TODO SUBMIT
+    // Only submit if user has selected a province
+    if(selected){
+        game.evaluateAnswer(selected.target.feature.properties.nameEN);
+    } 
 });

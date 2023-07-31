@@ -1,7 +1,7 @@
 export function newRound() {
-    
+    console.log("start the game");
 }
 
-export function evaluateAnswer() {
-
+export function evaluateAnswer(answer) {
+    console.log(answer);
 }
