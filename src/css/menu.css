@@ -10,7 +10,7 @@
     margin: 0;
     font: 50px 'Rubik', sans-serif;
     font-weight: 500;
-    width: 99%;
+    width: 95%;
     justify-content: center;
     display: flex;
 }
@@ -18,7 +18,7 @@
     padding: 10px;
     font: 30px 'Rubik', sans-serif;
     font-weight: 400;
-    width: 99%;
+    width: 95%;
 }
 
 #startGame {
