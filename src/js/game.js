@@ -1,6 +1,8 @@
 import {data as provinceList} from "./dishes.js";
 
-function getRandom(obj) {
+let currentDish;
+
+function getRandomDish(obj) {
     let keys = Object.keys(obj);
     let randomIndex = Math.floor(Math.random() * keys.length);
     let province = keys[randomIndex];
@@ -9,9 +11,15 @@ function getRandom(obj) {
 }
 
 export function newRound() {    
-    console.log(getRandom(provinceList));
+    currentDish = getRandomDish(provinceList);
+    console.log(currentDish);
 }
 
 export function evaluateAnswer(answer) {
-    console.log(answer);
+    if(answer == currentDish.province) {
+        console.log("correct");
+    }
+    else{
+        console.log("incorrect");
+    }
 }
