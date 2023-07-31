@@ -94,9 +94,10 @@ info.onAdd = function (map) {
 };
 
 info.update = function (props) {
-    this._div.innerHTML = '<h2>Current Province:</h2>' +  (props ?
-        '<h3>' + props.nameCN + " | " + props.nameEN + '</h3>'
-        : 'Hover over a province');
+    this._div.innerHTML = "<h2>Current Province:</h2>"
+    + (props ? "<h3>" + props.nameCN + " | " + props.nameEN + "</h3>" : "<h3>Hover over a province</h3>")
+    + "<h2>Selected Province:</h2>" 
+    + (selected ? "<h3>" + selected.target.feature.properties.nameCN + " | "+ selected.target.feature.properties.nameEN + "</h3>" : "<h3>Select a province</h3>");
 };
 
 info.addTo(map);
