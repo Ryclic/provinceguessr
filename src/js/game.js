@@ -3,10 +3,16 @@ import {data as provinceList} from "./dishes.js";
 let currentDish = "";
 const dishImg = document.getElementById("dish");
 const nextRound = document.getElementById("nextRound");
+const prompt = document.querySelector(".gameScreen > #left > #prompt");
 
 // Next round button
 nextRound.addEventListener("click", () => {
-    // Add logic to reset everything here
+    // Reset everything
+    prompt.style = "";
+    prompt.classList.remove("fade");
+    prompt.classList.remove("reveal");
+    prompt.innerHTML = "Where is this dish from?";
+    // Trigger a new round
     newRound();
 })
 
@@ -18,15 +24,19 @@ function getRandomDish(obj) {
     return { province, dish };
 }
 
-export function newRound() {    
+export function newRound() {
+    // Make sure next round isn't a repeat
     currentDish = getRandomDish(provinceList);
+    while(dishImg.src.includes("/src/assets/game/" + currentDish.dish.image)){
+        currentDish = getRandomDish(provinceList);
+    }
+
     dishImg.src = "/src/assets/game/" + currentDish.dish.image;
     console.log(currentDish);
 }
 
 export function evaluateAnswer(answer) {
     // Logic to evaluate and show result
-    const prompt = document.querySelector(".gameScreen > #left > #prompt");
     if(answer == currentDish.province) {
         prompt.classList.add("fade");
         setTimeout(function(){
