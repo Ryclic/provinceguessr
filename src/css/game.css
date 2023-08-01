@@ -2,15 +2,67 @@
     height: 100%;
     width: 40vw;
     position: fixed;
-    top: 10;
-    left: 10;
 }
 
-.gameScreen > #left h1 {
+.gameScreen > #left > #prompt {
     margin-top: 30px;
     font: 40px 'Rubik', sans-serif;
     font-weight: 500;
     width: 99%;
     justify-content: center;
     display: flex;
+    transition: opacity .25s ease-in-out
+}
+
+.gameScreen > #left > #dish {
+    display: block;
+    max-width: 700px;
+    max-height: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: auto;
+}
+
+#nextRound {
+    visibility: hidden;
+    position: absolute;
+    top: 92%;
+    left: 39%;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+    border-radius: 500px;
+    transition-property: background-color, transform;
+    transition-duration: .3s;
+    border: 1px solid transparent;
+    letter-spacing: 2px;
+    min-width: 160px;
+    text-transform: uppercase;
+    white-space: normal;
+    font-weight: 700;
+    text-align: center;
+    padding: 16px 14px 18px;
+    color: #fff;
+    background-color: rgb(224, 99, 99);;
+    height: 48px;
+}
+
+#nextRound:hover{
+    background-color: #852123;
+    transform: scale(1.1);
+    transition-duration: 0.3s;
+}
+#nextRound:not(:hover){
+    background-color: rgb(224, 99, 99);
+    transform: scale(1);
+    transition-duration: 0.3s;
+}
+
+.fade {
+    opacity: 0;
+}
+
+.reveal {
+    opacity: 1;
 }
