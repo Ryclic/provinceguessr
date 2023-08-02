@@ -31,10 +31,10 @@ function getRandomDish(obj) {
 export function newRound() {
     // Make sure next round isn't a repeat
     currentDish = getRandomDish(provinceList);
-    while(dishImg.src.includes("/assets/game/" + currentDish.dish.image)){
+    while(dishImg.src.includes(window.location.origin + "/assets/game/" + currentDish.dish.image)){
         currentDish = getRandomDish(provinceList);
     }
-    dishImg.src = "/assets/game/" + currentDish.dish.image;
+    dishImg.src = window.location.origin + "/assets/game/" + currentDish.dish.image;
     console.log(currentDish);
 }
 
