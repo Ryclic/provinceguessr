@@ -1,8 +1,15 @@
 import {provincesData} from "./provinces.js";
 import * as game from "./game.js";
 
-let selected = "";
+const topLeft = L.latLng(40, 70);
+const bottomRight = L.latLng(30, 140);
+const bounds = L.latLngBounds(topLeft, bottomRight);
+const map = L.map('map').fitBounds(bounds).setMinZoom(4); // .setMaxBounds(bounds);
+const info = L.control();
+const elements = document.querySelectorAll("#map, #resetButton, #submitButton");
 
+let selected = "";
+var geojson;
 // Default outline for all provinces
 function style(feature) {
     return {
@@ -67,26 +74,18 @@ function featureEffects(feature, layer){
 }
 
 // Bound and render the 2D map
-const topLeft = L.latLng(40, 70);
-const bottomRight = L.latLng(30, 140);
-const bounds = L.latLngBounds(topLeft, bottomRight);
-
-const map = L.map('map').fitBounds(bounds).setMinZoom(4); // .setMaxBounds(bounds);
 L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '© CartoDB'
 }).addTo(map);
 
 // Imported province data setup with Leaflet, setup map styles
-var geojson;
 geojson = L.geoJson(provincesData, {
     style: style,
     onEachFeature: featureEffects
 }).addTo(map);
 
 // Create a key for provinces
-const info = L.control();
-
 info.onAdd = function (map) {
     this._div = L.DomUtil.create('div', 'info');
     this.update();
@@ -102,6 +101,9 @@ info.update = function (props) {
 
 info.addTo(map);
 
+// Disable the submit button under blur at first
+submitButton.setAttribute("disabled", true);
+
 // Reset map view button
 document.getElementById("resetButton").addEventListener("click", () => {
     map.fitBounds(bounds);
@@ -109,13 +111,14 @@ document.getElementById("resetButton").addEventListener("click", () => {
 
 // Start game button
 document.getElementById("startGame").addEventListener("click", () => {
-    // Remove blur and show game
-    const elements = document.querySelectorAll("#map, #resetButton, #submitButton");
+    // Remove blur, permit submitting, and show game
     elements.forEach(element => {
       element.style.filter = "none";
     });
     document.getElementsByClassName("initScreen")[0].style.visibility = "hidden";
     document.getElementsByClassName("gameScreen")[0].style.visibility = "visible";
+    submitButton.removeAttribute("disabled");
+    
     game.newRound();
 })
 
@@ -125,4 +128,4 @@ document.getElementById("submitButton").addEventListener("click", () => {
     if(selected){
         game.evaluateAnswer(selected.target.feature.properties.nameEN);
     } 
-});
+})

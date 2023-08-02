@@ -4,14 +4,18 @@ let currentDish = "";
 const dishImg = document.getElementById("dish");
 const nextRound = document.getElementById("nextRound");
 const prompt = document.querySelector(".gameScreen > #left > #prompt");
-
+const submitButton = document.getElementById("submitButton");
+const resultScreen = document.getElementById("resultScreen");
+const dishDetails = document.getElementById("dishDetails")
 // Next round button
 nextRound.addEventListener("click", () => {
     // Reset everything
+    resultScreen.style.visibility = "hidden";
     prompt.style = "";
     prompt.classList.remove("fade");
     prompt.classList.remove("reveal");
     prompt.innerHTML = "Where is this dish from?";
+    submitButton.removeAttribute("disabled");
     // Trigger a new round
     newRound();
 })
@@ -30,7 +34,6 @@ export function newRound() {
     while(dishImg.src.includes("/src/assets/game/" + currentDish.dish.image)){
         currentDish = getRandomDish(provinceList);
     }
-
     dishImg.src = "/src/assets/game/" + currentDish.dish.image;
     console.log(currentDish);
 }
@@ -49,8 +52,11 @@ export function evaluateAnswer(answer) {
         prompt.innerHTML = "Not quite..."
         prompt.style.color = "#FF4040";
     }
+    // Disable submitting again
+    submitButton.setAttribute("disabled", true);
     // Show explanation and info about dish
-
+    dishDetails.innerHTML = currentDish.dish.description;
+    resultScreen.style.visibility = "visible";
     // Show next round button
     nextRound.style.visibility = "visible";
 }
