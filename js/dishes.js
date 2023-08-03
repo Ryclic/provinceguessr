@@ -58,7 +58,7 @@ const data = {
         {
             name: "Crossing-the-bridge noodles",
             description: "Crossing-the-bridge noodles is a rice noodle soup originating from the Yunnan province of China. These noodles have over a century of history and are listed as an intangible cultural heritage of Kunming city in 2008 to promote Yunnan food culture. The dish is served with a large bowl of boiling hot broth and soup. The soup is made with chicken, pork bone and seasoning, such as Chinese star anise and ginger.",
-            image: "crossingbridge.jpg"
+            image: "Yunnan/crossingbridge.jpg"
         }
     ]
 
